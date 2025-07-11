@@ -1,0 +1,272 @@
+/* App.css */
+
+/*
+* INCREDIBLE Futuristic & Modern Stylesheet
+* ==========================================
+* Key Features:
+* - Animated gradient background for a dynamic feel.
+* - Advanced glowing effects and inner shadows.
+* - Enhanced interactivity and subtle animations.
+* - Clean, readable typography with a futuristic touch.
+* - Responsive design for a seamless experience on all devices.
+*/
+
+/* Import a modern font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono&display=swap');
+
+/* Define CSS Variables */
+:root {
+--primary-color: #0d1117;
+--secondary-color: #161b22;
+--accent-color: #00aaff;
+--accent-color-glow: rgba(0, 170, 255, 0.5);
+--text-color: #c9d1d9;
+--positive-color: #2e7d32;
+--negative-color: #c62828;
+--positive-glow: rgba(46, 125, 50, 0.5);
+--negative-glow: rgba(198, 40, 40, 0.5);
+
+--font-family-headings: 'Orbitron', sans-serif;
+--font-family-body: 'Roboto Mono', monospace;
+--base-font-size: 16px;
+--border-radius: 12px;
+--transition-speed: 0.4s;
+}
+
+/* Base Styles & Animated Background */
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: var(--font-family-body);
+color: var(--text-color);
+font-size: var(--base-font-size);
+line-height: 1.6;
+background: linear-gradient(-45deg, #0d1117, #161b22, #0d1117, #161b22);
+background-size: 400% 400%;
+animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+0% {
+background-position: 0% 50%;
+}
+50% {
+background-position: 100% 50%;
+}
+100% {
+background-position: 0% 50%;
+}
+}
+
+/* Slider Component */
+.slider {
+    background-color: rgba(13, 17, 23, 0.8);
+    backdrop-filter: blur(10px);
+    color: var(--text-color);
+    line-height: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 0.9rem;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--accent-color);
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.1);
+}
+
+.slider div {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 30s linear infinite;
+}
+
+.slider div span {
+    padding-left: 20px;
+}
+
+.slider-market-raw {
+    margin-right: 25px;
+}
+
+.slider-name {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--accent-color-glow);
+}
+
+.slider .slider-market-raw span[style*="color: green"] {
+    color: var(--positive-color) !important;
+    text-shadow: 0 0 5px var(--positive-glow);
+}
+  
+.slider .slider-market-raw span[style*="color: red"] {
+    color: var(--negative-color) !important;
+    text-shadow: 0 0 5px var(--negative-glow);
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+/* Header Component */
+.header {
+    background-color: transparent;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-title {
+    font-family: var(--font-family-headings);
+    color: var(--text-color);
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--accent-color-glow), 0 0 20px var(--accent-color-glow);
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+
+/* Cards Component */
+.cards_title {
+    font-family: var(--font-family-headings);
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 2.5rem;
+    text-shadow: 0 0 8px var(--accent-color-glow);
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 2.5rem;
+    padding: 1rem 2rem 2rem;
+    justify-content: center;
+}
+
+.card {
+    background: var(--secondary-color);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 0 15px var(--accent-color-glow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+    animation: fadeIn 0.5s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 25px var(--accent-color-glow), 0 0 40px var(--accent-color-glow);
+}
+
+.card_body {
+    padding: 2rem;
+    text-align: center;
+}
+
+.card_title {
+    font-family: var(--font-family-headings);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin: 0;
+    text-shadow: 0 0 5px var(--accent-color-glow);
+}
+
+.card_btn {
+    padding: 1rem;
+    font-family: var(--font-family-headings);
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid var(--accent-color);
+    background: transparent;
+    color: var(--accent-color);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease-in-out;
+    text-shadow: 0 0 5px var(--accent-color-glow);
+}
+
+.card_btn:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    box-shadow: 0 0 20px var(--accent-color-glow);
+}
+
+/* Stocks Page */
+.stock-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.stock-column-data,
+.stock-column-chart {
+    background-color: rgba(22, 27, 34, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color-glow);
+    animation: fadeIn 0.5s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.stock-column-data{
+    flex: 1;
+    min-width: 300px;
+}
+.stock-column-chart {
+    flex: 2;
+    min-width: 300px;
+}
+
+.summary-span {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--accent-color-glow);
+}
+
+.stock-headings {
+    margin-top: 1.5rem;
+}
+.stock-headings h4{
+    font-size: 1.2rem;
+    font-family: var(--font-family-headings);
+    color: var(--accent-color);
+}
+.chart-true .error-message {
+    padding: 1rem;
+    color: var(--negative-color);
+    text-align: center;
+    font-family: var(--font-family-headings);
+    text-shadow: 0 0 5px var(--negative-glow);
+}
